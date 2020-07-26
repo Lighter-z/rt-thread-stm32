@@ -30,6 +30,6 @@ elif rtconfig.CROSS_TOOL == 'iar':
 # STM32F103xB || STM32F103xE || STM32F103xG
 # STM32F105xC || STM32F107xC)
 # You can select chips from the list above
-CPPDEFINES = ['STM32F103xB']
+CPPDEFINES = ['STM32F103xE']
 group = DefineGroup('Drivers', src, depend = [''], CPPPATH = path, CPPDEFINES = CPPDEFINES)
 Return('group')
