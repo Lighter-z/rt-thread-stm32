@@ -10,8 +10,8 @@
       <TargetName>rt-thread</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pCCUsed>6110000::V6.11::.\ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103RB</Device>
@@ -275,7 +275,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x20000</Size>
+                <Size>0x80000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -300,7 +300,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x5000</Size>
+                <Size>0x10000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -312,7 +312,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>7</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -321,14 +321,14 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
-            <v6LangP>1</v6LangP>
+            <v6Lang>5</v6Lang>
+            <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\common;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>applications;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\common;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include;packages\u8g2-cpp-latest;packages\u8g2-cpp-latest\port</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -387,6 +387,11 @@
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
             </File>
+            <File>
+              <FileName>HelloWorld.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\packages\u8g2-cpp-latest\examples\full_buffer\HelloWorld.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -422,6 +427,21 @@
         <Group>
           <GroupName>DeviceDrivers</GroupName>
           <Files>
+            <File>
+              <FileName>i2c_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c_dev.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c-bit-ops.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c-bit-ops.c</FilePath>
+            </File>
             <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
@@ -496,6 +516,11 @@
               <FileName>drv_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_soft_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_soft_i2c.c</FilePath>
             </File>
             <File>
               <FileName>drv_common.c</FileName>
@@ -676,6 +701,540 @@
               <FileName>stm32f1xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>U8G2</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>1</IncludeInBuild>
+              <AlwaysBuild>0</AlwaysBuild>
+              <GenerateAssemblyFile>0</GenerateAssemblyFile>
+              <AssembleAssemblyFile>0</AssembleAssemblyFile>
+              <PublicsOnly>0</PublicsOnly>
+              <StopOnExitCode>3</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <ComprImg>0</ComprImg>
+            </CommonProperty>
+            <GroupArmAds>
+              <Cads>
+                <interw>2</interw>
+                <Optim>0</Optim>
+                <oTime>2</oTime>
+                <SplitLS>2</SplitLS>
+                <OneElfS>2</OneElfS>
+                <Strict>2</Strict>
+                <EnumInt>2</EnumInt>
+                <PlainCh>2</PlainCh>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <wLevel>0</wLevel>
+                <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
+                <uC99>2</uC99>
+                <uGnu>2</uGnu>
+                <useXO>2</useXO>
+                <v6Lang>0</v6Lang>
+                <v6LangP>0</v6LangP>
+                <vShortEn>2</vShortEn>
+                <vShortWch>2</vShortWch>
+                <v6Lto>2</v6Lto>
+                <v6WtE>2</v6WtE>
+                <v6Rtti>2</v6Rtti>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define> </Define>
+                  <Undefine> </Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Cads>
+              <Aads>
+                <interw>2</interw>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <thumb>2</thumb>
+                <SplitLS>2</SplitLS>
+                <SwStkChk>2</SwStkChk>
+                <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
+                <useXO>2</useXO>
+                <uClangAs>2</uClangAs>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Aads>
+            </GroupArmAds>
+          </GroupOption>
+          <Files>
+            <File>
+              <FileName>u8g2_bitmap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_bitmap.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_box.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_box.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_buffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_buffer.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_circle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_circle.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_cleardisplay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_cleardisplay.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_d_memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_d_memory.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_d_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_d_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_font.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_font.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_hvline.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_hvline.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_input_value.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_input_value.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_intersection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_intersection.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_kerning.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_kerning.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_line.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_line.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_ll_hvline.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_ll_hvline.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_message.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_message.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_polygon.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_polygon.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_selection_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_selection_list.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8g2_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8log.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8log_u8g2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8log_u8g2.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8log_u8x8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8log_u8x8.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_8x8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_8x8.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_byte.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_byte.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_cad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_cad.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_a2printer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_a2printer.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_il3820_296x128.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_il3820_296x128.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ist3020.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ist3020.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ks0108.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ks0108.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_lc7981.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_lc7981.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ld7032_60x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ld7032_60x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ls013b7dh03.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ls013b7dh03.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_max7219.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_max7219.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_pcd8544_84x48.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_pcd8544_84x48.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_pcf8812.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_pcf8812.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_pcf8814_hx1230.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_pcf8814_hx1230.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sbn1661.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sbn1661.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sed1330.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sed1330.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sh1106_64x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sh1106_64x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sh1106_72x40.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sh1106_72x40.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sh1107.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sh1107.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sh1108.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sh1108.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_sh1122.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_sh1122.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1305.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1305.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_128x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_128x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_128x64_noname.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_128x64_noname.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_48x64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_48x64.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_64x32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_64x32.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_64x48.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_64x48.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1306_96x16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1306_96x16.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1309.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1309.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1317.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1317.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1318.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1318.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1322.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1322.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1325.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1325.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1326.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1326.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1327.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1327.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1329.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1329.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1606_172x72.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1606_172x72.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_ssd1607_200x200.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_ssd1607_200x200.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st75256.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st75256.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7565.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7565.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7567.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7567.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7586s_erc240160.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7586s_erc240160.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7586s_s028hn118a.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7586s_s028hn118a.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7588.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7588.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_st7920.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_st7920.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_stdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_t6963.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_t6963.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1601.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1601.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1604.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1604.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1608.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1608.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1610.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1610.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1611.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1611.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1617.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1617.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1638.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1638.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1701_dogs102.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1701_dogs102.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_d_uc1701_mini12864.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_d_uc1701_mini12864.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_debounce.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_debounce.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_display.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_input_value.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_input_value.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_message.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_message.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_selection_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_selection_list.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_string.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_string.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_u16toa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_u16toa.c</FilePath>
+            </File>
+            <File>
+              <FileName>u8x8_u8toa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\u8g2-cpp-latest\src\u8x8_u8toa.c</FilePath>
+            </File>
+            <File>
+              <FileName>Print.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>packages\u8g2-cpp-latest\port\Print.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>u8g2_port.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>packages\u8g2-cpp-latest\port\u8g2_port.cpp</FilePath>
             </File>
           </Files>
         </Group>

@@ -12,6 +12,8 @@
 #include <rtdevice.h>
 #include <board.h>
 
+//u8g2软件包没有上传，需要使用menuconfig重新配置下
+
 /* defined the LED0 pin: PB5 */
 #define LED0_PIN    GET_PIN(B, 5)
 

@@ -81,6 +81,8 @@
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
 
 /* Using USB */
@@ -143,6 +145,29 @@
 
 /* peripheral libraries and drivers */
 
+#define PKG_USING_U8G2
+
+/* U8G2 Examples */
+
+
+/* full buffer examples    (fast, large RAM consumption) */
+
+
+/* page buffer examples    (slow, small RAM consumption) */
+
+
+/* u8x8 text only examples (fonts with fixed size)       */
+
+
+/* game examples */
+
+#define PKG_USING_U8G2_CPP_LATEST_VERSION
+
+/* C   version: v1.x.x */
+
+/* C++ version: v2.x.x */
+
+#define PKG_U8G2_VER_NUM 0x29999
 
 /* miscellaneous packages */
 
@@ -165,6 +190,9 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_I2C1
+#define BSP_I2C1_SCL_PIN 22
+#define BSP_I2C1_SDA_PIN 23
 
 /* Board extended module Drivers */
 
