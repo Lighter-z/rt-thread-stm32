@@ -1,0 +1,11 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+bsp_src_path += [cwd + '/bsp_inc']
+src = []
+
+group = DefineGroup('Applications/bsp_src', src, depend = [''], CPPPATH = bsp_src_path)
+
+Return('group')

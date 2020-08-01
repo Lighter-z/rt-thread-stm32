@@ -59,7 +59,7 @@ static rt_err_t _adc_control(rt_device_t dev, int cmd, void *args)
 
     return result;
 }
-
+  
 #ifdef RT_USING_DEVICE_OPS
 const static struct rt_device_ops adc_ops =
 {

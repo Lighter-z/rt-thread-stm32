@@ -187,6 +187,19 @@ menu "On-chip Peripheral Drivers"
             config BSP_USING_ADC1
                 bool "Enable ADC1"
                 default n
+                if BSP_USING_ADC1
+                    config BSP_USING_ADC1_CH1
+                    bool "Enable ADC1 channel1"
+                    default n
+
+                    config BSP_USING_ADC1_CH2
+                    bool "Enable ADC1 channel2"
+                    default n
+
+                    config BSP_USING_ADC1_CH13
+                    bool "Enable ADC1 channel13"
+                    default n
+                endif
         endif
 
     config BSP_USING_ON_CHIP_FLASH
@@ -237,6 +250,15 @@ menu "On-chip Peripheral Drivers"
 endmenu
 
 menu "Board extended module Drivers"
+    menuconfig BSP_USING
+        bool "Enable bsp module"
+        default n
+        if BSP_USING
+            config RT_USING_ADC
+            bool "Enable adc"
+            default n
+            
+        endif
 
 endmenu
 

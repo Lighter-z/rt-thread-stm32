@@ -1,0 +1,11 @@
+#ifndef __MAIN_H
+#define __MAIN_H
+
+#include <rtthread.h>
+#include <rtdevice.h>
+#include <board.h>
+
+#include "bsp_inc/bsp_adc.h"
+
+
+#endif
