@@ -8,6 +8,9 @@ CPPPATH = [cwd + '/bsp_inc', str(Dir('#'))]
 
 if GetDepend(['RT_USING_ADC']):
 	src += ['bsp_src/bsp_adc.c']
+    
+if GetDepend(['RT_USING_HWTIMER']):
+	src += ['bsp_src/bsp_hwtimer.c']
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
 

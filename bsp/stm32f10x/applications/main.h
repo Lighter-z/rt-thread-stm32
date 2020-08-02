@@ -6,6 +6,7 @@
 #include <board.h>
 
 #include "bsp_inc/bsp_adc.h"
+#include "bsp_inc/bsp_hwtimer.h"
 
 
 #endif

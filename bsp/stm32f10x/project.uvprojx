@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>applications\bsp_inc;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\common;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>applications\bsp_inc;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\common;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -392,6 +392,11 @@
               <FileType>1</FileType>
               <FilePath>applications\bsp_src\bsp_adc.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>applications\bsp_src\bsp_hwtimer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -427,6 +432,11 @@
         <Group>
           <GroupName>DeviceDrivers</GroupName>
           <Files>
+            <File>
+              <FileName>hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\hwtimer\hwtimer.c</FilePath>
+            </File>
             <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
@@ -506,6 +516,11 @@
               <FileName>drv_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_hwtimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_hwtimer.c</FilePath>
             </File>
             <File>
               <FileName>drv_adc.c</FileName>
@@ -691,6 +706,16 @@
               <FileName>stm32f1xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1xx_hal_adc.c</FileName>

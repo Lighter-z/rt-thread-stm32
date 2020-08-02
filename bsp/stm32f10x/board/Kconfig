@@ -257,7 +257,12 @@ menu "Board extended module Drivers"
             config RT_USING_ADC
             bool "Enable adc"
             default n
+        endif
             
+        if BSP_USING
+            config RT_USING_HWTIMER
+            bool "Enable hwtimer"
+            default n
         endif
 
 endmenu
