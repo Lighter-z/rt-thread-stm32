@@ -264,6 +264,12 @@ menu "Board extended module Drivers"
             bool "Enable hwtimer"
             default n
         endif
+        
+        if BSP_USING
+            config RT_USING_RTC
+            bool "Enable rtc"
+            default n
+        endif
 
 endmenu
 

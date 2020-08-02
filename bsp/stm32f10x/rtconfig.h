@@ -84,13 +84,15 @@
 #define RT_USING_HWTIMER
 #define RT_USING_PIN
 #define RT_USING_ADC
+#define RT_USING_RTC
+#define RT_USING_SOFT_RTC
 
 /* Using USB */
 
 
 /* POSIX layer and C standard library */
 
-#define RT_LIBC_USING_TIME
+#define RT_USING_LIBC
 
 /* Network */
 
@@ -172,6 +174,8 @@
 #define BSP_USING_ADC
 #define BSP_USING_ADC1
 #define BSP_USING_ADC1_CH13
+#define BSP_USING_ONCHIP_RTC
+#define BSP_RTC_USING_LSE
 
 /* Board extended module Drivers */
 
