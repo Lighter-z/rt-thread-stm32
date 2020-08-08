@@ -392,11 +392,6 @@
               <FileType>1</FileType>
               <FilePath>applications\bsp_src\device_ds18b20.c</FilePath>
             </File>
-            <File>
-              <FileName>device_ds18b20_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\bsp_src\device_ds18b20_sample.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
