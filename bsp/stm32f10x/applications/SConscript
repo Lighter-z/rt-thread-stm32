@@ -14,7 +14,9 @@ if GetDepend(['RT_USING_HWTIMER']):
     
 if GetDepend(['RT_USING_RTC']):
 	src += ['bsp_src/bsp_rtc.c']
-    
+
+if GetDepend(['RT_USING_DS18b20']):
+	src += ['bsp_src/device_ds18b20.c']    
 
 group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
 

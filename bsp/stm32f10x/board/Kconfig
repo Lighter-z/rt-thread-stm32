@@ -271,6 +271,11 @@ menu "Board extended module Drivers"
             default n
         endif
 
+        if BSP_USING
+            config RT_USING_DS18b20
+            bool "Enable ds18b20"
+            default n
+        endif
 endmenu
 
 endmenu
