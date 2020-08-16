@@ -6,6 +6,17 @@
  * Change Logs:
  * Date           Author       Notes
  * 2018-11-06     SummerGift   first version
+ *
+ * esp8266-01
+ * 
+ *
+ * 3.3V  -------  3.3V
+ * EN    -------  3.3V
+ * TX    -------  PA3
+ * RX    -------  PA2
+ * GND   -------  GND
+ *
+ *
  */
 
 #include <rtthread.h>
@@ -18,6 +29,5 @@
 int main(void)
 {
 
-
-    return RT_EOK;
+  return RT_EOK;
 }
