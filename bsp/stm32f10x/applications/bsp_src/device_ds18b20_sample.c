@@ -46,7 +46,7 @@ static void DeviceDs18b20SampleReadTempEntry(void  *parameter) {
   }
 }
 
-static int DeviceDs18b20SampleReadTemp(void) {
+int DeviceDs18b20SampleReadTemp(void) {
   rt_thread_t ds18b20_thread;
   ds18b20_thread = rt_thread_create("ds18b20_get_temp", DeviceDs18b20SampleReadTempEntry, "temp_ds18b20", 1024, RT_THREAD_PRIORITY_MAX / 2, 20);
   if(ds18b20_thread != RT_NULL) {
@@ -56,7 +56,7 @@ static int DeviceDs18b20SampleReadTemp(void) {
 }
 INIT_APP_EXPORT(DeviceDs18b20SampleReadTemp);
 
-static int rt_hw_ds18b20_port(void) {
+int rt_hw_ds18b20_port(void) {
   struct rt_sensor_config cfg;
 
   cfg.intf.user_data = (void *)DS18B20_DATA_PIN;
@@ -64,6 +64,6 @@ static int rt_hw_ds18b20_port(void) {
 
   return RT_EOK;
 }
-INIT_COMPONENT_EXPORT(rt_hw_ds18b20_port);
+//INIT_COMPONENT_EXPORT(rt_hw_ds18b20_port);
 
 

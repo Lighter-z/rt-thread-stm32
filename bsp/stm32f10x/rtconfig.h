@@ -233,5 +233,6 @@
 /* Board extended module Drivers */
 
 #define BSP_USING
+#define RT_USING_DS18b20
 
 #endif

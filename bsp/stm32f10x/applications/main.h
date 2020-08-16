@@ -9,5 +9,9 @@
 #include "bsp_inc/bsp_hwtimer.h"
 #include "bsp_inc/bsp_rtc.h"
 
+#include "device_ds18b20.h"
+#include "OneNetThread.h"
+#include "onenet.h"
+
 
 #endif

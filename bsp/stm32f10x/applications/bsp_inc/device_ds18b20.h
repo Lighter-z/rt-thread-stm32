@@ -16,7 +16,8 @@ typedef struct {
 
 int rt_hw_device_ds18b20_init(const char *name, struct rt_sensor_config *cfg);
 
-
+int rt_hw_ds18b20_port(void);
+int DeviceDs18b20SampleReadTemp(void);
 
 #endif
 
