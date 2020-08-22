@@ -22,6 +22,7 @@ static void OneNetCmdRspCb(uint8_t *recv_data, size_t recv_size, uint8_t **resp_
 
 static void OneNetUploadEntry(void *parameter) {
   int value = 0;
+  rt_uint32_t set;
 
    /* 永久等待方式接收信号量，若收不到，该线程会一直挂起 */
   rt_sem_take(onenet_thread.mqqt_init_sem_, RT_WAITING_FOREVER);
@@ -35,23 +36,27 @@ static void OneNetUploadEntry(void *parameter) {
     
     value = rand() % 100;
     
-    rt_sem_take(device_ds18b20.ds18b20_sem_, RT_WAITING_FOREVER);
-    rt_thread_delay(rt_tick_from_millisecond(300));
-    //device_ds18b20.sensor_data_.timestamp
-    if (onenet_mqtt_upload_digit("temperature", device_ds18b20.data_) < 0) {
+//    rt_sem_take(device_ds18b20.ds18b20_sem_, RT_WAITING_FOREVER);
+
+    if(rt_event_recv(onenet_thread.recvdata_event_, (DS18B20_GET_DATA_EVENT | BH1750_GET_DATA_EVENT), RT_EVENT_FLAG_OR | RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &set) == RT_EOK) {
+      rt_thread_delay(rt_tick_from_millisecond(300));
+
+      if (onenet_mqtt_upload_digit("temperature", device_ds18b20.data_) < 0) {
+          LOG_E("upload has an error, stop uploading");
+          break;
+      } else {
+          LOG_D("buffer : {\"temperature\":%d}", device_ds18b20.data_);
+      }
+      rt_thread_delay(rt_tick_from_millisecond(300));
+      
+      if (onenet_mqtt_upload_digit("light", value) < 0) {
         LOG_E("upload has an error, stop uploading");
         break;
-    } else {
-        LOG_D("buffer : {\"temperature\":%d}", device_ds18b20.data_);
+      } else {
+          LOG_D("buffer : {\"light\":%d}", value);
+      }
     }
-    rt_thread_delay(rt_tick_from_millisecond(300));
-    
-    if (onenet_mqtt_upload_digit("vale_test", value) < 0) {
-      LOG_E("upload has an error, stop uploading");
-      break;
-    } else {
-        LOG_D("buffer : {\"DEm\":%d}", value);
-    }
+
   }
 }
 

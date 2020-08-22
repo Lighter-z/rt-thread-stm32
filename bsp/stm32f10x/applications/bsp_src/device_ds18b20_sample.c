@@ -4,6 +4,7 @@
 #include "sensor.h"
 #include "device_ds18b20.h"
 #include "SemInit.h"
+#include "OneNetThread.h"
 
 #define DS18B20_DATA_PIN   GET_PIN(G, 9)
 
@@ -26,7 +27,7 @@ static void DeviceDs18b20SampleReadTempEntry(void  *parameter) {
   while(1) {
     res = rt_device_read(dev, 0, &device_ds18b20.sensor_data_, 1);
     if(res != 1) {
-      rt_kprintf("read data failed!size is %d\n", res);
+//      rt_kprintf("read data failed!size is %d\n", res);
       rt_device_close(dev);
       return;
     } else {
@@ -43,7 +44,9 @@ static void DeviceDs18b20SampleReadTempEntry(void  *parameter) {
 //      }
       device_ds18b20.data_ = (float)device_ds18b20.sensor_data_.data.temp / 10;
 //      printf("temp: %f\r\n", device_ds18b20.data_);
-      rt_sem_release(device_ds18b20.ds18b20_sem_);
+//      rt_sem_release(device_ds18b20.ds18b20_sem_);
+      rt_event_send(onenet_thread.recvdata_event_, DS18B20_GET_DATA_EVENT);
+//      printf("recvdata_event_ = %d\r\n", onenet_thread.recvdata_event_);
     }
     rt_thread_mdelay(100);
   }
@@ -52,8 +55,12 @@ static void DeviceDs18b20SampleReadTempEntry(void  *parameter) {
 int DeviceDs18b20SampleReadTemp(void) {
   rt_thread_t ds18b20_thread;
   
-  device_ds18b20.ds18b20_sem_ = rt_sem_create("ds1820_sem", RT_NULL, RT_IPC_FLAG_FIFO);
-  RT_ASSERT(device_ds18b20.ds18b20_sem_);
+//  device_ds18b20.ds18b20_sem_ = rt_sem_create("ds1820_sem", RT_NULL, RT_IPC_FLAG_FIFO);
+//  RT_ASSERT(device_ds18b20.ds18b20_sem_);
+  
+    //初始化事件集
+  onenet_thread.recvdata_event_ = rt_event_create("Get Data Event", RT_IPC_FLAG_FIFO);
+  RT_ASSERT(onenet_thread.recvdata_event_);
   
   ds18b20_thread = rt_thread_create("ds18b20_get_temp", DeviceDs18b20SampleReadTempEntry, "temp_ds18b20", 
                                     DS18B20_THREAD_STACK_SIZE, 
