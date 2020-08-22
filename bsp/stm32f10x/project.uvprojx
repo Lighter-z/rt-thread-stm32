@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, RT_USING_ARM_LIBC, STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>applications\bsp_inc;.;..\..\components\net\at\include;..\..\components\net\at\at_socket;packages\at_device-v2.0.3\inc;packages\at_device-v2.0.3\class\esp8266;packages\cJSON-v1.0.2;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\dfs\include;..\..\components\dfs\filesystems\devfs;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\armlibc;..\..\components\libc\compilers\common;..\..\components\net\netdev\include;packages\onenet-latest\inc;packages\pahomqtt-v1.1.0\MQTTPacket\src;packages\pahomqtt-v1.1.0\MQTTClient-RT;..\..\components\net\sal_socket\include;..\..\components\net\sal_socket\include\socket;..\..\components\net\sal_socket\impl;..\..\components\net\sal_socket\include\dfs_net;..\..\components\net\sal_socket\include\dfs_net\sys_select;..\..\components\net\sal_socket\include\socket\sys_socket;..\..\components\drivers\sensors;..\..\components\drivers\include;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include;packages\webclient-v2.1.2\inc;.\applications\common</IncludePath>
+              <IncludePath>applications\bsp_inc;.;..\..\components\net\at\include;..\..\components\net\at\at_socket;packages\at_device-v2.0.3\inc;packages\at_device-v2.0.3\class\esp8266;packages\bh1750-latest;packages\cJSON-v1.0.2;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\dfs\include;..\..\components\dfs\filesystems\devfs;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\armlibc;..\..\components\libc\compilers\common;..\..\components\net\netdev\include;packages\onenet-latest\inc;packages\pahomqtt-v1.1.0\MQTTPacket\src;packages\pahomqtt-v1.1.0\MQTTClient-RT;..\..\components\net\sal_socket\include;..\..\components\net\sal_socket\include\socket;..\..\components\net\sal_socket\impl;..\..\components\net\sal_socket\include\dfs_net;..\..\components\net\sal_socket\include\dfs_net\sys_select;..\..\components\net\sal_socket\include\socket\sys_socket;..\..\components\drivers\sensors;..\..\components\drivers\include;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include;packages\webclient-v2.1.2\inc;.\applications\common</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,19 +393,14 @@
               <FilePath>applications\bsp_src\device_ds18b20.c</FilePath>
             </File>
             <File>
-              <FileName>device_ds18b20_sample.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\bsp_src\device_ds18b20_sample.c</FilePath>
-            </File>
-            <File>
               <FileName>OneNetThread.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\common\OneNetThread.c</FilePath>
             </File>
             <File>
-              <FileName>SemInit.c</FileName>
+              <FileName>device_ds18b20_sample.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\applications\common\SemInit.c</FilePath>
+              <FilePath>.\applications\bsp_src\device_ds18b20_sample.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -456,6 +451,21 @@
               <FileName>at_sample_esp8266.c</FileName>
               <FileType>1</FileType>
               <FilePath>packages\at_device-v2.0.3\samples\at_sample_esp8266.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>bh1750</GroupName>
+          <Files>
+            <File>
+              <FileName>bh1750.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\bh1750-latest\bh1750.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensor_rohm_bh1750.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\bh1750-latest\sensor_rohm_bh1750.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -512,6 +522,21 @@
         <Group>
           <GroupName>DeviceDrivers</GroupName>
           <Files>
+            <File>
+              <FileName>i2c_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c_dev.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c-bit-ops.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\drivers\i2c\i2c-bit-ops.c</FilePath>
+            </File>
             <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
@@ -586,6 +611,11 @@
               <FileName>drv_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\HAL_Drivers\drv_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_soft_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\HAL_Drivers\drv_soft_i2c.c</FilePath>
             </File>
             <File>
               <FileName>drv_common.c</FileName>
@@ -971,6 +1001,11 @@
               <FileName>stm32f1xx_hal_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c</FilePath>
             </File>
           </Files>
         </Group>
