@@ -402,6 +402,11 @@
               <FileType>1</FileType>
               <FilePath>.\applications\common\OneNetThread.c</FilePath>
             </File>
+            <File>
+              <FileName>SemInit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\common\SemInit.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

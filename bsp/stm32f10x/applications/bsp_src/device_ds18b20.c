@@ -9,6 +9,8 @@
 #define SENSOR_TEMP_RANGE_MAX (125)
 #define SENSOR_TEMP_RANGE_MIN (-55)
 
+Device_Ds18b20 device_ds18b20;
+
 RT_WEAK void rt_hw_us_delay(rt_uint32_t us) {
   rt_uint32_t delta;
 

@@ -5,16 +5,22 @@
 #include <rtdbg.h>
 
 
+//#define ONENET_THREAD_STACK_SIZE       (1024  * 2)                          //线程栈大小
+//#define ONENET_THREAD_PRIORITY         (RT_THREAD_PRIORITY_MAX / 3 - 1)     //优先级
+//#define ONENET_THREAD_TIMESLICE        5                                    //时间片
 #define ONENET_THREAD_STACK_SIZE       (1024  * 2)                          //线程栈大小
-#define ONENET_THREAD_PRIORITY         (RT_THREAD_PRIORITY_MAX / 3 - 1)     //优先级
-#define ONENET_THREAD_TIMESLICE        5                                    //时间片
+#define ONENET_THREAD_PRIORITY         (RT_THREAD_PRIORITY_MAX / 2 - 2)     //优先级
+#define ONENET_THREAD_TIMESLICE        20                                    //时间片
 
 typedef struct {
   
   rt_thread_t onenet_thread_;
+  rt_thread_t onenet_mqtt_init_thread_;         /* mqtt初始化的线程的句柄 */
+  
+  rt_sem_t mqqt_init_sem_;
   
 }OneNet_Thread;
 
-void OneNetUploadCycle(void);
+void OneNetUploadData(void);
 
 #endif
