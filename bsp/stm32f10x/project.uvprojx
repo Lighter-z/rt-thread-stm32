@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, RT_USING_ARM_LIBC, STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>applications\bsp_inc;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\spi;..\..\components\drivers\include;..\..\components\drivers\spi\sfud\inc;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\armlibc;..\..\components\libc\compilers\common;..\..\components\drivers\sensors;..\..\components\drivers\include;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>applications\bsp_inc;.;..\..\libcpu\arm\common;..\..\libcpu\arm\cortex-m3;..\..\components\drivers\include;..\..\components\drivers\include;..\..\components\drivers\spi;..\..\components\drivers\include;..\..\components\drivers\spi\sfud\inc;..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\components\dfs\include;..\..\components\dfs\filesystems\devfs;..\..\components\dfs\filesystems\elmfat;..\..\components\finsh;.;..\..\include;..\..\components\libc\compilers\armlibc;..\..\components\libc\compilers\common;..\..\components\drivers\sensors;..\..\components\drivers\include;..\libraries\STM32F1xx_HAL\CMSIS\Device\ST\STM32F1xx\Include;..\libraries\STM32F1xx_HAL\STM32F1xx_HAL_Driver\Inc;..\libraries\STM32F1xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -386,11 +386,6 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>applications\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>device_ds18b20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>applications\bsp_src\device_ds18b20.c</FilePath>
             </File>
             <File>
               <FileName>device_spi_flash.c</FileName>
@@ -624,6 +619,61 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Filesystem</GroupName>
+          <Files>
+            <File>
+              <FileName>dfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\dfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\dfs_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\dfs_fs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_posix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\dfs_posix.c</FilePath>
+            </File>
+            <File>
+              <FileName>poll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\poll.c</FilePath>
+            </File>
+            <File>
+              <FileName>select.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\src\select.c</FilePath>
+            </File>
+            <File>
+              <FileName>devfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\filesystems\devfs\devfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_elm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\filesystems\elmfat\dfs_elm.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\filesystems\elmfat\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ccsbcs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\dfs\filesystems\elmfat\option\ccsbcs.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>finsh</GroupName>
           <Files>
             <File>
@@ -640,6 +690,11 @@
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\components\finsh\msh.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\finsh\msh_file.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -730,6 +785,11 @@
               <FileName>mem_std.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\components\libc\compilers\armlibc\mem_std.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\components\libc\compilers\armlibc\stdio.c</FilePath>
             </File>
             <File>
               <FileName>stubs.c</FileName>

@@ -9,5 +9,7 @@
 #include "bsp_inc/bsp_hwtimer.h"
 #include "bsp_inc/bsp_rtc.h"
 
+#include <dfs_fs.h>
+
 
 #endif
