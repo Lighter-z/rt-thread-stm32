@@ -82,6 +82,13 @@
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_PIN
+#define RT_USING_SPI
+#define RT_USING_QSPI
+#define RT_USING_SFUD
+#define RT_SFUD_USING_SFDP
+#define RT_SFUD_USING_FLASH_INFO_TABLE
+#define RT_SFUD_USING_QSPI
+#define RT_SFUD_SPI_MAX_HZ 50000000
 #define RT_USING_SENSOR
 #define RT_USING_SENSOR_CMD
 
@@ -145,6 +152,7 @@
 
 /* peripheral libraries and drivers */
 
+#define BSP_USING_SPI2
 
 /* miscellaneous packages */
 
@@ -167,6 +175,7 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_SPI
 
 /* Board extended module Drivers */
 
