@@ -392,6 +392,11 @@
               <FileType>1</FileType>
               <FilePath>.\applications\bsp_src\device_spi_flash.c</FilePath>
             </File>
+            <File>
+              <FileName>device_dfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\bsp_src\device_dfs.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
